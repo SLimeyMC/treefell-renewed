@@ -23,20 +23,28 @@ configurations {
             developmentFabric.extendsFrom common
 }
 
+repositories {
+    mavenCentral()
+    maven { url = uri("https://api.modrinth.com/maven") }
+    maven { url = uri("https://maven.shedaniel.me/") }
+    maven { url = uri("https://maven.terraformersmc.com/") }
+    maven { url = uri("https://jitpack.io") }
+}
+
 dependencies {
-    modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
-    modApi "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_api_version}"
-    modImplementation("net.fabricmc:fabric-language-kotlin:1.10.10+kotlin.1.9.10")
+    modImplementation libs.fabric
+    modApi libs.fabric.api
+    modImplementation libs.fabric.kotlin
 
     // Architectury API
-    include(modApi "dev.architectury:architectury-fabric:${rootProject.architectury_version}")
+    modApi libs.architectury.fabric
 
     // Mod menu
-    modImplementation("com.terraformersmc:modmenu:3.2.3")
-    modImplementation("me.shedaniel.cloth:cloth-config:${cloth_config_version}")
+    modImplementation libs.modmenu
+    modImplementation libs.emi
 
     // Valkyrien Skies 2
-    modApi("org.valkyrienskies:valkyrienskies-118-fabric:${rootProject.vs2_version}")
+    modApi libs.valkyrienskies.fabric
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }

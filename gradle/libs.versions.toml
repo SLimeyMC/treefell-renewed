@@ -1,0 +1,61 @@
+[versions]
+kotlin = "1.9.22"
+
+minecraft = "1.18.2"
+architectury = "4.11.93" # Might check each subproject
+
+fabric_loader = "0.15.7"
+fabric_api = "0.77.0+1.18.2"
+fabric_language_kotlin = "1.10.17+kotlin.1.9.22"
+
+forge = "1.18.2-40.2.17"
+kotlin_for_forge = "3.12.0"
+
+emi = "0.7.3+1.18.2"
+modmenu = "3.2.5"
+
+valkyrien_skies = "2.1.1-beta.6+8efd751c2d"
+valkyrien_skies_core = "1.1.0+8a93383ce5"
+
+shadow = "7.1.2"
+
+[libraries]
+minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }
+architectury_common = { module = "dev.architectury:architectury", version.ref = "architectury" }
+
+# Fabric
+architectury_fabric = { module = "dev.architectury:architectury-fabric", version.ref = "architectury" }
+fabric = { module = "net.fabricmc:fabric-loader", version.ref = "fabric_loader" }
+fabric_api = { module = "net.fabricmc.fabric-api:fabric-api", version.ref = "fabric_api" }
+# https://github.com/FabricMC/fabric-language-kotlin
+fabric_kotlin = { module = "net.fabricmc:fabric-language-kotlin", version.ref = "fabric_language_kotlin" }
+
+# Forge froge fr*nchies
+forge = { module = "net.minecraftforge:forge", version.ref = "forge" }
+architectury_forge = { module = "dev.architectury:architectury-forge", version.ref = "architectury" }
+# https://github.com/thedarkcolour/KotlinForForge/blob/4.x/README.md
+forge_kotlin = { module = "thedarkcolour:kotlinforforge", version.ref = "kotlin_for_forge" }
+
+# Valkyrien skies
+valkyrienskies_common = { module = "org.valkyrienskies:valkyrienskies-118-common", version.ref = "valkyrien_skies"  }
+valkyrienskies_fabric = { module = "org.valkyrienskies:valkyrienskies-118-fabric", version.ref = "valkyrien_skies"  }
+valkyrienskies_forge = { module = "org.valkyrienskies:valkyrienskies-118-forge", version.ref = "valkyrien_skies"  }
+
+valkyrienskies_core_api = { module = "org.valkyrienskies.core:api", version.ref = "valkyrien_skies_core" }
+valkyrienskies_core_apigame = { module = "org.valkyrienskies.core:api-game", version.ref = "valkyrien_skies_core"  }
+valkyrienskies_core_util = { module = "org.valkyrienskies.core:util", version.ref = "valkyrien_skies_core"  }
+valkyrienskies_core_impl = { module = "org.valkyrienskies.core:impl", version.ref = "valkyrien_skies_core"  }
+
+# Depedency for the valkyrien skies that i have to add it myself
+mixinextras = { module = "com.github.LlamaLad7:MixinExtras", version = "0.1.1" }
+clothconfig = { module = "me.shedaniel.cloth:cloth-config-fabric", version = "6.4.90" }
+
+# Some random mod, you can delete it here
+emi = { module = "dev.emi:emi", version.ref = "emi" }
+# fabric_emi = { module = "dev.emi:emi-fabric", version.ref = "emi" }
+# forge_emi = { module = "dev.emi:emi-forge", version.ref = "emi" }
+
+modmenu = { module = "com.terraformersmc:modmenu", version.ref = "modmenu" }
+
+[plugins]
+shadow = { id = "com.github.johnrengelman.shadow", version.ref = "shadow" }
